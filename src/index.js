@@ -4,22 +4,19 @@ require('dotenv').config();
 const client = new Client({ 
   intents: [
     "GUILDS", 
-    "GUILD_MESSAGES"
+    "GUILD_MEMBERS"
   ] 
 });
-
-const guildId = 951618942907060224;
-const botId = 951617517812604949;
 
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
   client.user.setActivity("Test", {type: "PLAYING"});
 });
 
-client.on("messageCreate", (message) => {
-  if  (message.content === "ping") {
-    message.reply('pong');
-  } 
-})
+const roleId = "451396167276822529";
+
+client.on("guildMemberAdd", (member) => {
+  member.roles.set([roleId]);
+});
 
 client.login(process.env.TOKEN);
