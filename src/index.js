@@ -1,5 +1,6 @@
 const { Client } = require('discord.js');
-require('dotenv').config();
+
+// require('dotenv').config(); // uses .env file for debugging
 
 const client = new Client({ 
   intents: [
