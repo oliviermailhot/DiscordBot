@@ -18,7 +18,6 @@ const roleId = "451396167276822529";
 
 client.on("guildMemberAdd", (member) => {
   member.roles.set([roleId]);
-  console.log("test");
 });
 
 client.login(process.env.TOKEN);
